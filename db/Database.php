@@ -3,7 +3,7 @@
 namespace ramit\phpmvc\db;
 
 use ramit\phpmvc\Application;
-
+ 
 class Database
 {
     public \PDO $pdo;
