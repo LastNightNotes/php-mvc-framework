@@ -1,0 +1,10 @@
+{
+    "name": "devit/php-mvc-core",
+    "authors": [
+        {
+            "name": "Rahul Mittal",
+            "email": "rahulmittalramit@gmail.com"
+        }
+    ],
+    "require": {}
+}
