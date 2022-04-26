@@ -2,10 +2,10 @@
 
 
 
-namespace app\core\form;
-use app\core\Model;
+namespace ramit\phpmvc\form;
+use ramit\phpmvc\Model;
 /**
-* @package app\core\form
+* @package ramit\phpmvc\form
 */
 abstract class BaseField
 {
@@ -41,7 +41,3 @@ abstract class BaseField
     }
 
 }
-
-
-
-?>

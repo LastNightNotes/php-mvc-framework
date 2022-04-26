@@ -2,9 +2,9 @@
 
 
 
-namespace app\core;
+namespace ramit\phpmvc;
 /**
-* @package app\core
+* @package ramit\phpmvc
 */
 class Session
 {
@@ -62,7 +62,3 @@ class Session
         $_SESSION[self::FLASH_KEY] = $flashMessages;
     }
 }
-
-
-
-?>

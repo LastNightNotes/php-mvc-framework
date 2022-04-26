@@ -1,10 +1,10 @@
 <?php
 
-namespace app\core\db;
-use app\core\Model;
-use app\core\Application;
+namespace ramit\phpmvc\db;
+use ramit\phpmvc\Model;
+use ramit\phpmvc\Application;
 /**
-* @package app\core
+* @package ramit\phpmvc
 */
 abstract class DbModel extends Model
 {
@@ -54,7 +54,3 @@ abstract class DbModel extends Model
 
     }
 }
-
-
-
-?>

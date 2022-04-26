@@ -1,7 +1,8 @@
 <?php
 
-namespace app\core\db;
-use app\core\Application;
+namespace ramit\phpmvc\db;
+
+use ramit\phpmvc\Application;
 
 class Database
 {
@@ -65,7 +66,7 @@ class Database
 
     public function saveMigrations(array $migrations)
     {
-        $str = implode(",",array_map(fn($m) => "('$m')", $migrations));
+        $str = implode(",", array_map(fn ($m) => "('$m')", $migrations));
         $statement = $this->pdo->prepare("INSERT INTO migrations (migration) VALUES
         $str
         ");
@@ -73,7 +74,7 @@ class Database
         $statement->execute();
     }
 
-    public function prepare($sql)   
+    public function prepare($sql)
     {
         return $this->pdo->prepare($sql);
     }

@@ -1,12 +1,12 @@
 <?php
 
-namespace app\core\form;
+namespace ramit\phpmvc\form;
 
-use app\core\Model;
+use ramit\phpmvc\Model;
 
 /**
-* @package app\core\form
-*/
+ * @package ramit\phpmvc\form
+ */
 class InputField extends BaseField
 {
     public const TYPE_TEXT = 'text';
@@ -16,7 +16,7 @@ class InputField extends BaseField
     public string $type;
 
 
-       /**
+    /**
      * @param Model $model
      * @param string $attribute
      */
@@ -35,13 +35,13 @@ class InputField extends BaseField
 
     public function renderInput(): string
     {
-        return sprintf('<input type="%s" name="%s" id="%s" value="%s" class="%s" >', 
-        $this->type,
-        $this->attribute,
-        $this->attribute,
-        $this->model->{$this->attribute},
-        $this->model->hasError($this->attribute) ? ' invalid' : '');
+        return sprintf(
+            '<input type="%s" name="%s" id="%s" value="%s" class="%s" >',
+            $this->type,
+            $this->attribute,
+            $this->attribute,
+            $this->model->{$this->attribute},
+            $this->model->hasError($this->attribute) ? ' invalid' : ''
+        );
     }
-
-
 }

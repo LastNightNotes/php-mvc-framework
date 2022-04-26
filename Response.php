@@ -1,11 +1,11 @@
 <?php
 
-namespace app\core;
+namespace ramit\phpmvc;
 
 /**
  * Class Response
  * 
- * @package app\core
+ * @package ramit\phpmvc
  */
 
 class Response

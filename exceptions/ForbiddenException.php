@@ -3,16 +3,12 @@
 
 
 
-namespace app\core\exceptions;
+namespace ramit\phpmvc\exceptions;
 /**
-* @package app\core\exceptions
+* @package ramit\phpmvc\exceptions
 */
 class  ForbiddenException extends \Exception
 {
     protected $code = 403;
     protected $message = "You don't have permission to access this page!";
 }
-
-
-
-?>

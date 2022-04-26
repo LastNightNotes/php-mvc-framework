@@ -1,13 +1,13 @@
 <?php 
 
-namespace app\core;
-use app\core\db\DbModel;
-use app\core\db\Database;
+namespace ramit\phpmvc;
+use ramit\phpmvc\db\DbModel;
+use ramit\phpmvc\db\Database;
 
 /**
  * Class Application
  * 
- * @package app\core
+ * @package ramit\phpmvc
  */
 
 class Application{
@@ -82,6 +82,3 @@ class Application{
 
  
 }
-
-
-?>

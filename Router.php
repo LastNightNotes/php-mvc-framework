@@ -1,16 +1,17 @@
-<?php 
+<?php
 
-namespace app\core;
+namespace ramit\phpmvc;
 
-use app\core\exceptions\NotFoundException;
+use ramit\phpmvc\exceptions\NotFoundException;
 
 /**
  * Class Router
  * 
- * @package app\core
+ * @package ramit\phpmvc
  */
 
-class Router{
+class Router
+{
 
     public Request $request;
     public Response $response;
@@ -19,11 +20,12 @@ class Router{
     /**
      * Router constructor
      * 
-     * @param \app\core\Request $request
-     * @param \app\core\Response $response
+     * @param \ramit\phpmvc\Request $request
+     * @param \ramit\phpmvc\Response $response
      */
 
-    public function __construct(Request $request, Response $response) {
+    public function __construct(Request $request, Response $response)
+    {
         $this->request = $request;
         $this->response = $response;
     }
@@ -32,27 +34,28 @@ class Router{
     {
         $this->routes['get'][$path] = $callback;
     }
-   
+
     public function post($path, $callback)
     {
         $this->routes['post'][$path] = $callback;
     }
 
-    public function resolve(){
+    public function resolve()
+    {
         $path = $this->request->getPath();
         $method = $this->request->method();
 
         $callback = $this->routes[$method][$path] ?? false;
-        if($callback === false){
+        if ($callback === false) {
             throw new NotFoundException();
         }
 
 
-        if(is_string($callback)){
+        if (is_string($callback)) {
             return Application::$app->view->renderContent($callback);
         }
 
-        if(is_array($callback)){
+        if (is_array($callback)) {
             /** @var Controller $controller */
             $controller = new $callback[0]();
             Application::$app->controller = $controller;
@@ -66,6 +69,4 @@ class Router{
 
         return call_user_func($callback, $this->request, $this->response);
     }
-
-    
 }

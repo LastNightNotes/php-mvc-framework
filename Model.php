@@ -2,10 +2,10 @@
 
 
 
-namespace app\core;
+namespace ramit\phpmvc;
 
 /**
- * @package app\core 
+ * @package ramit\phpmvc 
  */
 abstract class  Model
 {
@@ -68,7 +68,7 @@ abstract class  Model
                     $statement->bindValue(":attr", $value);
                     $statement->execute();
                     $record = $statement->fetchObject();
-                    if($record){
+                    if ($record) {
                         $this->addErrorForRule($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
                     }
                 }

@@ -3,16 +3,12 @@
 
 
 
-namespace app\core\exceptions;
+namespace ramit\phpmvc\exceptions;
 /**
-* @package app\core\exceptions
+* @package ramit\phpmvc\exceptions
 */
 class  NotFoundException extends \Exception
 {
     protected $code = 404;
     protected $message = "Page not found";
 }
-
-
-
-?>

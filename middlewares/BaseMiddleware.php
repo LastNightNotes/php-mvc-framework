@@ -2,15 +2,11 @@
 
 
 
-namespace app\core\middlewares;
+namespace ramit\phpmvc\middlewares;
 /**
-* @package app\core\middlewares
+* @package ramit\phpmvc\middlewares
 */
 abstract class BaseMiddleware
 {
     abstract public function execute();
 }
-
-
-
-?>

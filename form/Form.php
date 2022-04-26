@@ -1,13 +1,13 @@
 <?php
 
 
-namespace app\core\form;
+namespace ramit\phpmvc\form;
 
-use app\core\Model;
+use ramit\phpmvc\Model;
 
 /**
-* @package app\core\form
-*/
+ * @package ramit\phpmvc\form
+ */
 class Form
 {
     public static function begin($action, $method)
@@ -15,7 +15,7 @@ class Form
         echo sprintf('<form action="%s" method="%s">', $action, $method);
         return new Form();
     }
-   
+
     public static function end()
     {
         echo '</form>';
@@ -25,8 +25,4 @@ class Form
     {
         return new InputField($model, $attribute);
     }
-
 }
-
-
-

@@ -2,16 +2,12 @@
 
 
 
-namespace app\core  ;
-use app\core\db\DbModel;
+namespace ramit\phpmvc  ;
+use ramit\phpmvc\db\DbModel;
 /**
-* @package app\core 
+* @package ramit\phpmvc 
 */
 abstract class  UserModel extends DbModel
 {
     abstract public function getDisplayName(): string;
 }
-
-
-
-?>

@@ -2,9 +2,9 @@
 
 
 
-namespace app\core;
+namespace ramit\phpmvc;
 /**
-* @package app\core
+* @package ramit\phpmvc
 */
 class View
 {
@@ -39,7 +39,3 @@ class View
         return ob_get_clean();
     }
 }
-
-
-
-?>

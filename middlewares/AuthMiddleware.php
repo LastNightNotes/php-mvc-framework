@@ -2,13 +2,13 @@
 
 
 
-namespace app\core\middlewares;
+namespace ramit\phpmvc\middlewares;
 
-use app\core\Application;
-use app\core\exceptions\ForbiddenException;
+use ramit\phpmvc\Application;
+use ramit\phpmvc\exceptions\ForbiddenException;
 
 /**
-* @package app\core\middlewares
+* @package ramit\phpmvc\middlewares
 */
 class AuthMiddleware extends BaseMiddleware
 {
@@ -27,7 +27,3 @@ class AuthMiddleware extends BaseMiddleware
         }
     }
 }
-
-
-
-?>

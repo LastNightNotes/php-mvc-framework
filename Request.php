@@ -1,11 +1,11 @@
 <?php
 
-namespace app\core;
+namespace ramit\phpmvc;
 
 /**
  * Class Request
  * 
- * @package app\core
+ * @package ramit\phpmvc
  */
 
 class Request
@@ -29,7 +29,7 @@ class Request
     {
         return $this->method() === 'get';
     }
-    
+
     public function isPost()
     {
         return $this->method() === 'post';

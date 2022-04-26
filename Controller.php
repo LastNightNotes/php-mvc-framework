@@ -1,12 +1,13 @@
 <?php
 
-namespace app\core;
-use app\core\middlewares\BaseMiddleware;
+namespace ramit\phpmvc;
+
+use ramit\phpmvc\middlewares\BaseMiddleware;
 
 /**
  * Class Controller
  * 
- * @package app\core
+ * @package ramit\phpmvc
  */
 
 class Controller
@@ -23,7 +24,7 @@ class Controller
     {
         return Application::$app->view->renderContent($view, $params);
     }
-   
+
     public function setLayout($layout)
     {
         $this->layout = $layout;
