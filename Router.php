@@ -40,6 +40,53 @@ class Router
         $this->routes['post'][$path] = $callback;
     }
 
+    public function getCallback() {
+        $method = $this->request->getMethod();
+        $url = $this->request->getUrl();
+
+        // Trim slashes
+        $url = trim($url, "/");
+
+        // Get all routes for current request method
+        $routes = $this->routes[$method] ?? [];
+
+        $routeParams = false;
+        // start iterating registed routes
+        foreach ($routes as $route => $callback) {
+            // Trim slashes
+            $route = trim($route, "/");
+            $routeNames = [];
+
+            if(!$route) {
+                continue;
+            }
+
+            // /login/1 ----> /login/{id} ---> /login/(\w+)
+            // /profile/1/ramit -----> /profile/{id:\d+}/{username} -----> /profile/(\d+)/(\w+)
+             // Find all route names from route and save in $routeNames
+             if(preg_match_all('/\{(\w+)(:[^}]+)?}/', $route, $matches)) {
+                $routeNames = $matches[1];
+             }
+
+             // Convert route name into regex pattern
+            $routeRegex = "@^" . preg_replace_callback('/\{\w+(:([^}]+))?}/', fn($m) => isset($m[2]) ? "({$m[2]})" : '(\w+)', $route) . "$@";
+
+            // Test and match current route against $routeRegex
+            if (preg_match_all($routeRegex, $url, $valueMatches)) {
+                $values = [];
+                for ($i = 1; $i < count($valueMatches); $i++) {
+                    $values[] = $valueMatches[$i][0];
+                }
+                $routeParams = array_combine($routeNames, $values);
+
+                $this->request->setRouteParams($routeParams);
+                return $callback;
+            }
+            
+        }
+        return false;
+    }
+
     public function resolve()
     {
         $path = $this->request->getPath();
@@ -47,7 +94,10 @@ class Router
 
         $callback = $this->routes[$method][$path] ?? false;
         if ($callback === false) {
-            throw new NotFoundException();
+            $callback = $this->getCallback();
+            if($callback === false) {
+                throw new NotFoundException();
+            }
         }
 
 
